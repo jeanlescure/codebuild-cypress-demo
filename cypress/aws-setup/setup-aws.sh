@@ -77,6 +77,7 @@ aws s3api create-bucket --bucket $(jq -r .name ../../package.json)-test-results
 
 aws codebuild create-project --name $(jq -r .name ../../package.json)-test \
 --source file://codebuild-project-source.json \
+--source-version "test" \
 --artifacts "type=NO_ARTIFACTS" \
 --environment file://codebuild-project-environment.json \
 --service-role $ROLE_ARN \

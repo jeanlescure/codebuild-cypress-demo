@@ -1,7 +1,7 @@
 {
   "type": "GITHUB",
   "location": "https://github.com/jeanlescure/codebuild-cypress-demo.git",
-  "sourceIdentifier": "test",
+  "gitCloneDepth": 5,
   "reportBuildStatus": true,
   "insecureSsl": true
 }
