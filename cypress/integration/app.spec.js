@@ -11,4 +11,8 @@ context('App', () => {
 
     cy.get('h1').contains('Welcome to codebuild-cypress-demo')
   })
+
+  it('should have a "hello world" button', () => {
+    cy.get('button').contains('hello world')
+  })
 })

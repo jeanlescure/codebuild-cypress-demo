@@ -5,13 +5,14 @@ phases:
     runtime-versions:
       nodejs: 10
     commands:
-      - echo "Installing yarn..." && npm install -g yarn
+      - export SKIP="false"
+      - if [[ "$(git log -1 HEAD --pretty=format:%s)" == *\[test\]* ]]; then echo "Installing yarn..." && npm install -g yarn; else export SKIP="true"; fi
   pre_build:
     commands:
-      - echo "Installing source NPM dependencies..." && yarn
+      - if [[ "$SKIP" == "true" ]]; then echo "Skipping source NPM dependencies install..."; else echo "Installing source NPM dependencies..." && yarn; fi
   build:
     commands:
-      - echo "Testing UI..." && yarn test
+      - if [[ "$SKIP" == "true" ]]; then echo "Skipping tests..." && exit 1; else echo "Testing UI..." && yarn test; fi
   post_build:
     commands:
       - echo Test completed on `date`
