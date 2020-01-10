@@ -13,6 +13,9 @@ phases:
   build:
     commands:
       - if [[ "$SKIP" == "true" ]]; then echo "Skipping tests..." && exit 1; else echo "Testing UI..." && yarn test; fi
+      - export S3_DIR_DATE=$(date +'%Y%m%dT%H%M%S')
+      - aws s3 sync ./cypress/videos s3://codebuild-cypress-demo-test-results/$S3_DIR_DATE
+      - aws s3 sync ./cypress/screenshots s3://codebuild-cypress-demo-test-results/$S3_DIR_DATE
   post_build:
     commands:
       - echo Test completed on `date`

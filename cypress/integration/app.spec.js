@@ -13,6 +13,7 @@ context('App', () => {
   })
 
   it('should have a "hello world" button', () => {
-    cy.get('button').contains('hello world')
+    cy.get('button').contains('hello world').click()
+    cy.get('h1').contains('Button clicked!')
   })
 })
