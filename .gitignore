@@ -110,5 +110,7 @@ dist
 build
 
 # Cypress
+cypress/aws-setup/codebuild-github-access.json
+cypress/aws-setup/codebuild-project-environment.json
 cypress/screenshots/
 cypress/videos/

@@ -1,0 +1,17 @@
+{
+  "type": "LINUX_CONTAINER",
+  "image": "aws/codebuild/amazonlinux2-x86_64-standard:2.0",
+  "computeType": "BUILD_GENERAL1_SMALL",
+  "environmentVariables": [
+    {
+      "name": "AWS_ACCESS_KEY_ID",
+      "value": "1234ABCDEFG5678HIJKL",
+      "type": "PLAINTEXT"
+    },
+    {
+      "name": "AWS_SECRET_ACCESS_KEY",
+      "value": "1234ABCDEFG5678HIJKLMNOP901234ABCDEFG567",
+      "type": "PLAINTEXT"
+    }
+  ]
+}
